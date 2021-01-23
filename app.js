@@ -33,6 +33,7 @@ buildEngineer = () => {
                         return true
                     }
                     else {
+                        //used Return instead of Console Log. Return presents the message more clearly into a different line and seperates any error input//
                         return "Please put a number between 1-9 only!"
                     }
                 }
