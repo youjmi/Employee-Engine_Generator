@@ -33,7 +33,7 @@ buildEngineer = () => {
                         return true
                     }
                     else {
-                        console.log("Please put a number between 1-9 only!")
+                        return "Please put a number between 1-9 only!"
                     }
                 }
 
@@ -47,7 +47,7 @@ buildEngineer = () => {
                         return true
                     }
                     else {
-                        console.log("Please put a valid email!")
+                        return "Please put a valid email!"
                     }
                 }
             },
@@ -58,7 +58,10 @@ buildEngineer = () => {
             },
 
         ])
+//new Data
 }
+
+
 
 
 
@@ -79,7 +82,7 @@ buildIntern = () => {
                     return true
                 }
                 else {
-                    console.log("Please put a number between 1-9 only!")
+                    return "Please put a number between 1-9 only!"
                 }
             }
         },
@@ -92,7 +95,7 @@ buildIntern = () => {
                     return true
                 }
                 else {
-                    console.log("Please put a valid email!")
+                    return "Please put a valid email!"
                 }
             }
         },
@@ -125,7 +128,7 @@ buildManager = () => {
                     return true
                 }
                 else {
-                    console.log("Please put a number between 1-9 only!")
+                    return "Please put a number between 1-9 only!"
                 }
             }
         },
@@ -138,7 +141,7 @@ buildManager = () => {
                     return true
                 }
                 else {
-                    console.log("Please put a valid email!")
+                    return "Please put a valid email!"
                 }
             }
         },
@@ -151,7 +154,7 @@ buildManager = () => {
                     return true
                 }
                 else {
-                    console.log("Please put the correct Office Number that is between 1-9 only!")
+                    return "Please put the correct Office Number that is between 1-9 only!"
                 }
             }
         },
@@ -159,6 +162,7 @@ buildManager = () => {
 
     ])
 }
+
 
 
 
