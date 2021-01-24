@@ -12,8 +12,22 @@ const render = require("./lib/htmlRenderer");
 
 const teamGroup = []
 
-buildManager = () => {
-     inquirer.prompt([
+//Adding another employee option//
+const addEmployee=([
+        {
+            type: "list",
+            name: "add",
+            message: "Who do you want to add?",
+            choices: [
+                "Manager",
+                "Engineer",
+                "Intern",
+                "None"
+            ]
+        }
+    ])
+
+const buildManager = ([
         {
             type: "input",
             name: "name",
@@ -23,7 +37,7 @@ buildManager = () => {
                     return true
                 }
                 else {
-                    return "Please enter your Manager's name!"
+                    return "Please enter Manager's name!"
                 }
             }
         },
@@ -68,14 +82,9 @@ buildManager = () => {
         },
 
     ])
-}
 
 
-buildEngineer = () => {
-
-    inquirer
-        .prompt([
-
+const buildEngineer = ([
             {
                 type: "input",
                 name: "name",
@@ -88,8 +97,6 @@ buildEngineer = () => {
                         return "Please enter your Engineer's name!"
                     }
                 }
-
-
             },
             {
                 type: "input",
@@ -104,7 +111,6 @@ buildEngineer = () => {
                         return "Please put a number between 1-9 only!"
                     }
                 }
-
             },
             {
                 type: "input",
@@ -124,24 +130,12 @@ buildEngineer = () => {
                 name: "github",
                 message: "Engineer's github:"
             },
-            {
-                type: "list",
-                name: "addEmployee",
-                message: "Is there another Employee you would like to add?",
-                choices: [ 
-                    "Manager",
-                    "Engineer",
-                    "Intern",
-                    "No more additions"
-                ]
-            },
 
         ])
-}
 
 
-buildIntern = () => {
-    inquirer.prompt([
+
+const buildIntern = ([
         {
             type: "input",
             name: "name",
@@ -186,28 +180,93 @@ buildIntern = () => {
             name: "school",
             message: "Intern's school:"
         },
-        {
-            type: "list",
-            name: "addEmployee",
-            message: "Is there another Employee you would like to add?",
-            choices: [ 
-                "Manager",
-                "Engineer",
-                "Intern",
-                "No more additions"
-            ]
-        },
     ])
+
+
+const nextPrompt = () => {
+    inquirer.prompt(addEmployee).then((data) => {
+        if (data.add === "Manager"){
+            managerPrompt()
+        }
+        else if (data.add ==="Engineer") {
+            engineerPrompt()
+        }
+        else if (data.add === "Intern") {
+            internPrompt()
+        }
+        else {
+
+            //WORK ON THIS PART... HOW DO I LINK THE OUTPATH VARIABLES...
+            
+            fs.writeFile("TEST.html", render(teamGroup), (err) =>
+            err ? console.log(err) : console.log("Success!")
+            )
+        }
+
+
+
+        // switch (data) {
+        //     case "Manager":
+        //         managerPrompt();
+        //         break;
+        //     case "Engineer":
+        //         engineerPrompt();
+        //         break;
+        //     case "Intern":
+        //         internPrompt();
+        //         break;
+        //     default:
+        //         fs.writeFile("TEST.html", render(teamGroup), (err) =>
+        //             err ? console.log(err) : console.log("Success!")
+        //         )
+        // }
+    })
+
 }
 
 
+const managerPrompt = () => {
+    inquirer.prompt(buildManager).then((data) => {
+        teamGroup.push(new Manager(data.name, data.id, data.email, data.officeNumber))
+        nextPrompt()
+    })
+}
 
+const engineerPrompt = () => {
+    inquirer.prompt(buildEngineer).then((data) => {
+        teamGroup.push(new Engineer(data.name, data.id, data.email, data.github))
+        nextPrompt()
+    })
+}
+
+const internPrompt = () => {
+    inquirer.prompt(buildIntern).then((data) => {
+        teamGroup.push(new Intern(data.name, data.id, data.email, data.school))
+        nextPrompt()
+    })
+}
+
+
+managerPrompt()
 
 
 // addManager = ()=> {
 //     buildManager().then((data) => {
 //         const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
-//         
+//         if (data.list === "Manager") {
+//             teamGroup.push(manager)
+//             buildManager();
+//         }
+//         else if (data.list ==="Engineer") {
+//             teamGroup.push(manager);
+//             buildEngineer();
+//         }
+//         else if (data.list ==="Intern") {
+//             teamGroup.push(manager);
+//             buildIntern();
+//         }
+//         else {
+//             teamGroup.push(manager)
 //             fs.writeFile("ManagerTest.html", render(data), (err) => 
 //             err ? console.log(err) : console.log("Success!!! ")
 //         );
@@ -237,7 +296,6 @@ buildIntern = () => {
 
 // }
 
-buildManager()
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
