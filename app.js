@@ -13,182 +13,182 @@ const render = require("./lib/htmlRenderer");
 const teamGroup = []
 
 //Adding another employee option//
-const addEmployee=([
-        {
-            type: "list",
-            name: "add",
-            message: "Who do you want to add?",
-            choices: [
-                "Manager",
-                "Engineer",
-                "Intern",
-                "None"
-            ]
-        }
-    ])
+const addEmployee = ([
+    {
+        type: "list",
+        name: "add",
+        message: "Who do you want to add?",
+        choices: [
+            "Manager",
+            "Engineer",
+            "Intern",
+            "None"
+        ]
+    }
+])
 
 const buildManager = ([
-        {
-            type: "input",
-            name: "name",
-            message: "Managers's name:",
-            validate: (entryInput) => {
-                if (entryInput) {
-                    return true
-                }
-                else {
-                    return "Please enter Manager's name!"
-                }
+    {
+        type: "input",
+        name: "name",
+        message: "Managers's name:",
+        validate: (entryInput) => {
+            if (entryInput) {
+                return true
             }
-        },
-        {
-            type: "input",
-            name: "id",
-            message: "Manager's id:",
-            validate: (entryInput) => {
-                if (/^([1-9])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put a number between 1-9 only!"
-                }
+            else {
+                return "Please enter Manager's name!"
             }
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "Manager's email:",
-            validate: (entryInput) => {
-                if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put a valid email!"
-                }
+        }
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "Manager's id:",
+        validate: (entryInput) => {
+            if (/^([1-9])$/.test(entryInput)) {
+                return true
             }
-        },
-        {
-            type: "input",
-            name: "officeNumber",
-            message: "Manager's office number:",
-            validate: (entryInput) => {
-                if (/^([1-9])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put the correct Office Number that is between 1-9 only!"
-                }
+            else {
+                return "Please put a number between 1-9 only!"
             }
-        },
+        }
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "Manager's email:",
+        validate: (entryInput) => {
+            if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
+                return true
+            }
+            else {
+                return "Please put a valid email!"
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "officeNumber",
+        message: "Manager's office number:",
+        validate: (entryInput) => {
+            if (/^([1-9])$/.test(entryInput)) {
+                return true
+            }
+            else {
+                return "Please put the correct Office Number that is between 1-9 only!"
+            }
+        }
+    },
 
-    ])
+])
 
 
 const buildEngineer = ([
-            {
-                type: "input",
-                name: "name",
-                message: "Engineer's name:",
-                validate: (entryInput) => {
-                    if (entryInput) {
-                        return true
-                    }
-                    else {
-                        return "Please enter your Engineer's name!"
-                    }
-                }
-            },
-            {
-                type: "input",
-                name: "id",
-                message: "Engineer's id:",
-                validate: (entryInput) => {
-                    if (/^([1-9])$/.test(entryInput)) {
-                        return true
-                    }
-                    else {
-                        //used Return instead of Console Log. Return presents the message more clearly into a different line and seperates any error input//
-                        return "Please put a number between 1-9 only!"
-                    }
-                }
-            },
-            {
-                type: "input",
-                name: "email",
-                message: "Engineer's email:",
-                validate: (entryInput) => {
-                    if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
-                        return true
-                    }
-                    else {
-                        return "Please put a valid email!"
-                    }
-                }
-            },
-            {
-                type: "input",
-                name: "github",
-                message: "Engineer's github:"
-            },
+    {
+        type: "input",
+        name: "name",
+        message: "Engineer's name:",
+        validate: (entryInput) => {
+            if (entryInput) {
+                return true
+            }
+            else {
+                return "Please enter your Engineer's name!"
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "Engineer's id:",
+        validate: (entryInput) => {
+            if (/^([1-9])$/.test(entryInput)) {
+                return true
+            }
+            else {
+                //used Return instead of Console Log. Return presents the message more clearly into a different line and seperates any error input//
+                return "Please put a number between 1-9 only!"
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "Engineer's email:",
+        validate: (entryInput) => {
+            if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
+                return true
+            }
+            else {
+                return "Please put a valid email!"
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "github",
+        message: "Engineer's github:"
+    },
 
-        ])
+])
 
 
 
 const buildIntern = ([
-        {
-            type: "input",
-            name: "name",
-            message: "Intern's name:",
-            validate: (entryInput) => {
-                if (entryInput) {
-                    return true
-                }
-                else {
-                    return "Please enter your Intern's name!"
-                }
+    {
+        type: "input",
+        name: "name",
+        message: "Intern's name:",
+        validate: (entryInput) => {
+            if (entryInput) {
+                return true
             }
-        },
-        {
-            type: "input",
-            name: "id",
-            message: "Intern's id:",
-            validate: (entryInput) => {
-                if (/^([1-9])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put a number between 1-9 only!"
-                }
+            else {
+                return "Please enter your Intern's name!"
             }
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "Intern's email:",
-            validate: (entryInput) => {
-                if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put a valid email!"
-                }
+        }
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "Intern's id:",
+        validate: (entryInput) => {
+            if (/^([1-9])$/.test(entryInput)) {
+                return true
             }
-        },
-        {
-            type: "input",
-            name: "school",
-            message: "Intern's school:"
-        },
-    ])
+            else {
+                return "Please put a number between 1-9 only!"
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "Intern's email:",
+        validate: (entryInput) => {
+            if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
+                return true
+            }
+            else {
+                return "Please put a valid email!"
+            }
+        }
+    },
+    {
+        type: "input",
+        name: "school",
+        message: "Intern's school:"
+    },
+])
 
 
 const nextPrompt = () => {
     inquirer.prompt(addEmployee).then((data) => {
-        if (data.add === "Manager"){
+        if (data.add === "Manager") {
             managerPrompt()
         }
-        else if (data.add ==="Engineer") {
+        else if (data.add === "Engineer") {
             engineerPrompt()
         }
         else if (data.add === "Intern") {
@@ -197,9 +197,8 @@ const nextPrompt = () => {
         else {
 
             //WORK ON THIS PART... HOW DO I LINK THE OUTPATH VARIABLES...
-            
-            fs.writeFile("TEST.html", render(teamGroup), (err) =>
-            err ? console.log(err) : console.log("Success!")
+            fs.writeFile(outputPath, render(teamGroup), (err) =>
+                err ? console.log(err) : console.log("Success!")
             )
         }
 
