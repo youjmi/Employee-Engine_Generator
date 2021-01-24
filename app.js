@@ -10,6 +10,65 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const teamGroup = []
+
+buildManager = () => {
+     inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Managers's name:",
+            validate: (entryInput) => {
+                if (entryInput) {
+                    return true
+                }
+                else {
+                    return "Please enter your Manager's name!"
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Manager's id:",
+            validate: (entryInput) => {
+                if (/^([1-9])$/.test(entryInput)) {
+                    return true
+                }
+                else {
+                    return "Please put a number between 1-9 only!"
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Manager's email:",
+            validate: (entryInput) => {
+                if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
+                    return true
+                }
+                else {
+                    return "Please put a valid email!"
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "officeNumber",
+            message: "Manager's office number:",
+            validate: (entryInput) => {
+                if (/^([1-9])$/.test(entryInput)) {
+                    return true
+                }
+                else {
+                    return "Please put the correct Office Number that is between 1-9 only!"
+                }
+            }
+        },
+
+    ])
+}
 
 
 buildEngineer = () => {
@@ -19,15 +78,23 @@ buildEngineer = () => {
 
             {
                 type: "input",
-                name: "nameEngineer",
-                message: "What is the Engineer's name?",
+                name: "name",
+                message: "Engineer's name:",
+                validate: (entryInput) => {
+                    if (entryInput) {
+                        return true
+                    }
+                    else {
+                        return "Please enter your Engineer's name!"
+                    }
+                }
 
 
             },
             {
                 type: "input",
-                name: "idEngineer",
-                message: "What is the Engineer's id?",
+                name: "id",
+                message: "Engineer's id:",
                 validate: (entryInput) => {
                     if (/^([1-9])$/.test(entryInput)) {
                         return true
@@ -41,8 +108,8 @@ buildEngineer = () => {
             },
             {
                 type: "input",
-                name: "emailEngineer",
-                message: "What is the Engineer's email?",
+                name: "email",
+                message: "Engineer's email:",
                 validate: (entryInput) => {
                     if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
                         return true
@@ -54,30 +121,44 @@ buildEngineer = () => {
             },
             {
                 type: "input",
-                name: "githubEngineer",
-                message: "What is the Engineer's github?"
+                name: "github",
+                message: "Engineer's github:"
+            },
+            {
+                type: "list",
+                name: "addEmployee",
+                message: "Is there another Employee you would like to add?",
+                choices: [ 
+                    "Manager",
+                    "Engineer",
+                    "Intern",
+                    "No more additions"
+                ]
             },
 
         ])
-//new Data
 }
-
-
-
-
 
 
 buildIntern = () => {
     inquirer.prompt([
         {
             type: "input",
-            name: "nameIntern",
-            message: "What is the intern's name?"
+            name: "name",
+            message: "Intern's name:",
+            validate: (entryInput) => {
+                if (entryInput) {
+                    return true
+                }
+                else {
+                    return "Please enter your Intern's name!"
+                }
+            }
         },
         {
             type: "input",
-            name: "idIntern",
-            message: "What is the intern's id? ",
+            name: "id",
+            message: "Intern's id:",
             validate: (entryInput) => {
                 if (/^([1-9])$/.test(entryInput)) {
                     return true
@@ -89,8 +170,8 @@ buildIntern = () => {
         },
         {
             type: "input",
-            name: "emailIntern",
-            message: "What is the intern's email?",
+            name: "email",
+            message: "Intern's email:",
             validate: (entryInput) => {
                 if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
                     return true
@@ -102,79 +183,61 @@ buildIntern = () => {
         },
         {
             type: "input",
-            name: "schoolIntern",
-            message: "What is the intern's school? "
-        },
-
-
-
-    ])
-}
-
-buildManager = () => {
-    inquirer.prompt([
-
-
-        {
-            type: "input",
-            name: "nameManager",
-            message: "What is the Managers's name?"
+            name: "school",
+            message: "Intern's school:"
         },
         {
-            type: "input",
-            name: "idManager",
-            message: "What is the Manager's id?",
-            validate: (entryInput) => {
-                if (/^([1-9])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put a number between 1-9 only!"
-                }
-            }
+            type: "list",
+            name: "addEmployee",
+            message: "Is there another Employee you would like to add?",
+            choices: [ 
+                "Manager",
+                "Engineer",
+                "Intern",
+                "No more additions"
+            ]
         },
-        {
-            type: "input",
-            name: "emailManager",
-            message: "What is the Manager's email?",
-            validate: (entryInput) => {
-                if (/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put a valid email!"
-                }
-            }
-        },
-        {
-            type: "input",
-            name: "officeNumberManager",
-            message: "What is the Manager's office number?",
-            validate: (entryInput) => {
-                if (/^([1-9])$/.test(entryInput)) {
-                    return true
-                }
-                else {
-                    return "Please put the correct Office Number that is between 1-9 only!"
-                }
-            }
-        },
-
-
     ])
 }
 
 
 
 
-//newobject
 
-//then data.. fs. ->Render 
+// addManager = ()=> {
+//     buildManager().then((data) => {
+//         const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
+//         
+//             fs.writeFile("ManagerTest.html", render(data), (err) => 
+//             err ? console.log(err) : console.log("Success!!! ")
+//         );
+//         }
+//     })
+
+// }
 
 
+// addEngineer = ()=> {
+//     buildEngineer().then((data) => {
+//         const engineer = new Engineer(data.name, data.id, data.email, data.github)
+//         fs.writeFile("engineerTest.html", render(teamGroup), (err) => 
+//                 err ? console.log(err) : console.log("Success!!! ")
+//             );
+//     })
 
+// }
 
+// addIntern = ()=> {
+//     buildEngineer().then((data) => {
+//         const intern = new Intern(data.name, data.id, data.email, data.school)
+//         fs.writeFile("internTest.html", render(teamGroup), (err) => 
+//                 err ? console.log(err) : console.log("Success!!! ")
+//             );
+//     })
 
+// }
+
+buildManager()
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
