@@ -184,7 +184,8 @@ const buildIntern = ([
 
 
 const nextPrompt = () => {
-    inquirer.prompt(addEmployee).then((data) => {
+    inquirer.prompt(addEmployee)
+        .then((data) => {
         if (data.add === "Manager") {
             managerPrompt()
         }
@@ -196,29 +197,10 @@ const nextPrompt = () => {
         }
         else {
 
-            //WORK ON THIS PART... HOW DO I LINK THE OUTPATH VARIABLES...
             fs.writeFile(outputPath, render(teamGroup), (err) =>
-                err ? console.log(err) : console.log("Success!")
+                err ? console.log(err) : console.log("Success! Here is your Team!")
             )
         }
-
-
-
-        // switch (data) {
-        //     case "Manager":
-        //         managerPrompt();
-        //         break;
-        //     case "Engineer":
-        //         engineerPrompt();
-        //         break;
-        //     case "Intern":
-        //         internPrompt();
-        //         break;
-        //     default:
-        //         fs.writeFile("TEST.html", render(teamGroup), (err) =>
-        //             err ? console.log(err) : console.log("Success!")
-        //         )
-        // }
     })
 
 }
@@ -246,54 +228,9 @@ const internPrompt = () => {
 }
 
 
-managerPrompt()
+nextPrompt()
 
 
-// addManager = ()=> {
-//     buildManager().then((data) => {
-//         const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
-//         if (data.list === "Manager") {
-//             teamGroup.push(manager)
-//             buildManager();
-//         }
-//         else if (data.list ==="Engineer") {
-//             teamGroup.push(manager);
-//             buildEngineer();
-//         }
-//         else if (data.list ==="Intern") {
-//             teamGroup.push(manager);
-//             buildIntern();
-//         }
-//         else {
-//             teamGroup.push(manager)
-//             fs.writeFile("ManagerTest.html", render(data), (err) => 
-//             err ? console.log(err) : console.log("Success!!! ")
-//         );
-//         }
-//     })
-
-// }
-
-
-// addEngineer = ()=> {
-//     buildEngineer().then((data) => {
-//         const engineer = new Engineer(data.name, data.id, data.email, data.github)
-//         fs.writeFile("engineerTest.html", render(teamGroup), (err) => 
-//                 err ? console.log(err) : console.log("Success!!! ")
-//             );
-//     })
-
-// }
-
-// addIntern = ()=> {
-//     buildEngineer().then((data) => {
-//         const intern = new Intern(data.name, data.id, data.email, data.school)
-//         fs.writeFile("internTest.html", render(teamGroup), (err) => 
-//                 err ? console.log(err) : console.log("Success!!! ")
-//             );
-//     })
-
-// }
 
 
 // Write code to use inquirer to gather information about the development team members,
