@@ -12,6 +12,8 @@ const render = require("./lib/htmlRenderer");
 
 const teamGroup = []
 
+
+
 //Adding another employee option//
 const addEmployee = ([
     {
@@ -188,7 +190,9 @@ const nextPrompt = () => {
             internPrompt()
         }
         else {
-
+            if (fs.existsSync (OUTPUT_DIR) != true ) {
+                fs.mkdirSync(OUTPUT_DIR)
+            }
             fs.writeFile(outputPath, render(teamGroup), (err) =>
                 err ? console.log(err) : console.log("Success! Here is your Team!")
             )
@@ -213,6 +217,10 @@ const internPrompt = () => {
         nextPrompt()
     })
 }
+
+
+
+
 nextPrompt()
 
 
