@@ -26,7 +26,6 @@ const addEmployee = ([
         ]
     }
 ])
-
 const buildManager = ([
     {
         type: "input",
@@ -82,8 +81,6 @@ const buildManager = ([
     },
 
 ])
-
-
 const buildEngineer = ([
     {
         type: "input",
@@ -132,9 +129,6 @@ const buildEngineer = ([
     },
 
 ])
-
-
-
 const buildIntern = ([
     {
         type: "input",
@@ -181,8 +175,6 @@ const buildIntern = ([
         message: "Intern's school:"
     },
 ])
-
-
 const nextPrompt = () => {
     inquirer.prompt(addEmployee)
         .then((data) => {
@@ -202,32 +194,25 @@ const nextPrompt = () => {
             )
         }
     })
-
 }
-
-
 const managerPrompt = () => {
     inquirer.prompt(buildManager).then((data) => {
         teamGroup.push(new Manager(data.name, data.id, data.email, data.officeNumber))
         nextPrompt()
     })
 }
-
 const engineerPrompt = () => {
     inquirer.prompt(buildEngineer).then((data) => {
         teamGroup.push(new Engineer(data.name, data.id, data.email, data.github))
         nextPrompt()
     })
 }
-
 const internPrompt = () => {
     inquirer.prompt(buildIntern).then((data) => {
         teamGroup.push(new Intern(data.name, data.id, data.email, data.school))
         nextPrompt()
     })
 }
-
-
 nextPrompt()
 
 
