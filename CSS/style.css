@@ -1,0 +1,15 @@
+
+
+
+.jumbotron {
+    background-color: darkred;
+    color: white;
+}
+
+.card-header {
+    background-color: cornflowerblue;
+}
+
+.card-title {
+   color: white;
+}
