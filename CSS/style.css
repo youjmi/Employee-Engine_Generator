@@ -1,15 +1,56 @@
 
 
 
-.jumbotron {
-    background-color: darkred;
+.jumbotron, .footer {
+    background-color:skyblue
+}
+
+
+
+.card-header {
+    background-color: royalblue;
     color: white;
 }
 
-.card-header {
-    background-color: cornflowerblue;
+.card-body {    
+    padding: 5%;
+    margin: 5%;
 }
 
-.card-title {
-   color: white;
-}
+
+
+.fa-github {
+    background-color: black;
+    color: white;
+    padding: 8px 10px 8px 10px;
+  
+  }
+
+
+.fab{
+    border-radius: 50%;
+    text-decoration: none;
+    margin-right: 5px;
+    
+  }
+  
+ .fa-facebook{
+  background-color: #3b5998;
+  color: white;
+  padding: 8px 10px 8px 10px;
+  }
+  
+  
+  .fa-youtube{
+    background-color: red;
+    color: white;
+    padding: 8px 9px 8px 9px;
+  }
+  
+  .fa-linkedin{
+    background-color: #0e76a8;
+    color: white;
+    padding: 8px 10px 8px 10px;
+  }
+
+ 

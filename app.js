@@ -9,9 +9,10 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+
 const teamGroup = []
 
-//Adding another employee option//
+//Adding employee option//
 const addEmployee = ([
     {
         type: "list",
