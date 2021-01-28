@@ -49,7 +49,7 @@ validate: (Function)
 
 When the user completes adding the employees and choosed "None" as their option, then a new folder  "output" and a new html "team.html" will be created!
 
-![Screen Shot 2021-01-28 at 5 46 30 PM](https://user-images.githubusercontent.com/73494581/106208854-0875f600-6192-11eb-8498-737d05e5f507.png)
+![Screen Shot 2021-01-28 at 5 47 50 PM](https://user-images.githubusercontent.com/73494581/106208851-06139c00-6192-11eb-95fd-7667aecb51eb.png)
 
 ![Screen Shot 2021-01-28 at 5 46 30 PM](https://user-images.githubusercontent.com/73494581/106208854-0875f600-6192-11eb-8498-737d05e5f507.png)
 
