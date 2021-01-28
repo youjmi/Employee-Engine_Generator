@@ -53,6 +53,8 @@ When the user completes adding the employees and choose "None" as their option, 
 
 ![Screen Shot 2021-01-28 at 5 46 30 PM](https://user-images.githubusercontent.com/73494581/106208854-0875f600-6192-11eb-8498-737d05e5f507.png)
 
+![Screen Shot 2021-01-28 at 5 19 17 PM](https://user-images.githubusercontent.com/73494581/106208839-014ee800-6192-11eb-80f9-170ec48079bd.png)
+
 ## Contribution
 
 Thank you for having the time to view my work. I would like to thank a fellow classmate of mine, John Toth for explaining to me how to create a folder by using an If Else statement. I would like to give special acknowledgement to my study group as well. We assist one another by providing Feedback, Brainstorming, and general support:
