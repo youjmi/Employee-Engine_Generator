@@ -19,3 +19,45 @@
 
 
  This Homework Assigment is a software engineering team generator! With this application, you will be able to navigate with ease and built your Team into an automatically generated html file!
+
+## Installation 
+
+Please install the following
+
+```
+npm i inquirer --save
+```
+
+The Inquirer will prompt inputs in your terminal.
+
+Then application will be invoked by using the following command:
+
+```
+node app.js
+```
+
+## Usage
+
+Once that is invoked, the user's terminal will proceed with a variety of different questions that will help create your Team profile.  I have added the validate function to about 90% of my messages, ensuring that important information isn't skipped
+
+``` 
+validate: (Function)
+```
+--- add pic for Validate
+
+--- add pic for terminal
+
+When the user completes adding the employees and choosed "None" as their option, then a new folder  "output" and a new html "team.html" will be created!
+
+--- add pic for none
+
+--- add last pic
+
+## Contribution
+
+Thank you for having the time to view my work. I would like to thank a fellow classmate of mine, John Toth for explaining to me how to create a folder by using an If Else statement. I would like to give special acknowledgement to my study group as well. We assist one another by providing Feedback, Brainstorming, and general support:
+
+1. Rachel Wanke - https://github.com/rwanke14
+2. Amir Ashtiany - https://github.com/Alexfit4
+3. Johnnie Simpson - https://github.com/balokdecoy
+4. Frankie Rosado - https://github.com/Franciscorosado09
