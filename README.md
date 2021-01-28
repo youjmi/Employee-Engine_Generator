@@ -43,15 +43,15 @@ Once that is invoked, the user's terminal will proceed with a variety of differe
 ``` 
 validate: (Function)
 ```
---- add pic for Validate
+![Screen Shot 2021-01-28 at 5 18 43 PM](https://user-images.githubusercontent.com/73494581/106208828-feec8e00-6191-11eb-9dd7-ad2527c491e3.png)
 
---- add pic for terminal
+![Screen Shot 2021-01-28 at 5 18 25 PM](https://user-images.githubusercontent.com/73494581/106208825-fc8a3400-6191-11eb-804c-ae177c781cad.png)
 
 When the user completes adding the employees and choosed "None" as their option, then a new folder  "output" and a new html "team.html" will be created!
 
---- add pic for none
+![Screen Shot 2021-01-28 at 5 46 30 PM](https://user-images.githubusercontent.com/73494581/106208854-0875f600-6192-11eb-8498-737d05e5f507.png)
 
---- add last pic
+![Screen Shot 2021-01-28 at 5 46 30 PM](https://user-images.githubusercontent.com/73494581/106208854-0875f600-6192-11eb-8498-737d05e5f507.png)
 
 ## Contribution
 
